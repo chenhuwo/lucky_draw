@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: url('dist/bg.jpg') no-repeat;
+            background-size: cover;
+        }
+
+
+
+
+    </style>
+    <link href="dist/btn.css"  type="text/css" rel="stylesheet">
+    <link href="dist/layui.css"  type="text/css" rel="stylesheet">
+    <link href="dist/global.css"  type="text/css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<div class="layui-container" style="margin-top: 8%" >
+    <div class="layui-row " style="top: 20%;">
+        <div class="layui-col-md3" style="margin-left:40%">
+            <div class="grid-demo grid-demo-bg1 grid1" style="font-size:90px;padding: 10px; line-height: 80px;">0000</div>
+        </div>
+
+    </div>
+    <div class="layui-row" style="text-align: center;margin-top: 130px" >
+        <button class="start button button-3d button-primary button-rounded"  onClick="start()">开始抽奖</button>
+        <button class="end button button-3d button-primary button-caution" onClick="end()">停止抽奖</button>
+
+    </div >
+
+</div>
+
+
+</body>
+<script src="dist/jquery-1.12.4.min.js"></script>
+<script>
+    $(function () {
+        $(".end").hide();
+    })
+
+    var run;
+    function start() {
+        clearInterval(run);
+        run = setInterval(function () {
+//            val = Math.ceil(Math.random() *1000);
+            $(".grid1").text(Math.ceil(Math.random() *1000));
+
+        },10);
+        $(".start").hide();
+        $(".end").show();
+
+    }
+    function end() {
+        clearInterval(run);
+        $(".start").show();
+        $(".end").hide();
+
+    }
+
+
+</script>
+</html>

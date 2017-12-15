@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: url('dist/bg.jpg') no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            width: 100%;
+            height: 200px;
+            position: fixed;
+            top: 23%;
+            /*margin: -100px 0 0 -200px;*/
+            text-align: center;
+        }
+
+        .result-box {
+            background-color: #fff;
+            text-align: center;
+            line-height: 90px;
+            font-size: 80px;
+
+        }
+
+        /* define bootstrap 5 columns */
+        .col-xs-1-5,
+        .col-sm-1-5,
+        .col-md-1-5,
+        .col-lg-1-5 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        .col-xs-1-5 {
+            width: 20%;
+            float: left;
+        }
+
+        @media (min-width: 768px) {
+            .col-sm-1-5 {
+                width: 20%;
+                float: left;
+            }
+        }
+        @media (min-width: 992px) {
+            .col-md-1-5 {
+                width: 20%;
+                float: left;
+            }
+        }
+        @media (min-width: 1200px) {
+            .col-lg-1-5 {
+                width: 20%;
+                float: left;
+            }
+        }
+
+
+
+
+
+
+    </style>
+    <link href="dist/btn.css"  type="text/css" rel="stylesheet">
+    <link href="dist/layui.css"  type="text/css" rel="stylesheet">
+    <link href="dist/global.css"  type="text/css" rel="stylesheet">
+
+
+</head>
+<body>
+<!--<div class="container">
+    <div class="layui-row layui-col-space10" style="border:1px solid red">
+        <div class="layui-col-md3" style="background-color: #fff;">
+            你的内容 9/12
+        </div>
+        <div class="layui-col-md3" style="background-color: #fff;">
+            你的内容 9/12
+        </div>
+        <div class="layui-col-md3" style="background-color: #fff;">
+            你的内容 9/12
+        </div>
+        <div class="layui-col-md3" style="background-color: #fff;">
+            你的内容 9/12
+        </div>
+
+
+    </div>
+    &lt;!&ndash;<div class="result-box">0000 </div>&ndash;&gt;
+    <button class="start button button-3d button-primary button-rounded" style="top: 50px" onClick="start()">开始抽奖</button>
+    <button class="end button button-3d button-primary button-caution" style="top: 50px" onClick="end()">停止抽奖</button>
+</div>&lt;!&ndash;container&ndash;&gt;-->
+
+<div class="layui-container" style="margin-top: 8%" >
+    <div class="layui-row layui-col-space30" style="top: 20%">
+        <div class="layui-col-md3">
+            <div class="grid-demo grid-demo-bg1 grid1">0000</div>
+        </div>
+        <div class="layui-col-md3">
+            <div class="grid-demo grid-demo-bg1 grid2">0000</div>
+        </div>
+        <div class="layui-col-md3">
+            <div class="grid-demo grid-demo-bg1 grid3">0000</div>
+        </div>
+        <div class="layui-col-md3">
+            <div class="grid-demo grid-demo-bg1 grid4">0000</div>
+        </div>
+        <div class="layui-col-md3">
+            <div class="grid-demo grid-demo-bg1 grid5">0000</div>
+        </div>
+    </div>
+    <div class="layui-row" style="text-align: center;margin-top: 130px" >
+        <button class="start button button-3d button-primary button-rounded"  onClick="start()">开始抽奖</button>
+        <button class="end button button-3d button-primary button-caution" onClick="end()">停止抽奖</button>
+
+    </div >
+
+</div>
+
+
+</body>
+<script src="dist/jquery-1.12.4.min.js"></script>
+<script>
+    $(function () {
+        $(".end").hide();
+    })
+
+    var run;
+    function start() {
+        clearInterval(run);
+        run = setInterval(function () {
+//            val = Math.ceil(Math.random() *1000);
+            $(".grid1").text(Math.ceil(Math.random() *1000));
+            $(".grid2").text(Math.ceil(Math.random() *1000));
+            $(".grid3").text(Math.ceil(Math.random() *1000));
+            $(".grid4").text(Math.ceil(Math.random() *1000));
+            $(".grid5").text(Math.ceil(Math.random() *1000));
+        },10);
+        $(".start").hide();
+        $(".end").show();
+
+    }
+    function end() {
+        clearInterval(run);
+        $(".start").show();
+        $(".end").hide();
+
+    }
+
+
+</script>
+</html>
